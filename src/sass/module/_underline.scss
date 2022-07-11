@@ -1,0 +1,48 @@
+.global-nav__link {
+  position: relative;
+  
+  /* 横線 */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: rem(25);
+    left: 0;
+    width: 0;
+    height: rem(1);
+    background: $primary-color;
+    transition: all 0.3s ease 0s;
+  }
+  
+  /* mainを過ぎた時に色変更 */
+  &.change-color {
+    @include mq('md') {
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: rem(25);
+        left: 0;
+        width: 0;
+        height: rem(1);
+        background: $white;
+        transition: all 0.3s ease 0s;
+      }
+      
+      &:hover,
+      &:focus {
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  /* ホバーで幅100%に */
+  &:hover,
+  &:focus {
+    &::after {
+      width: 100%;
+    }
+  }
+}
+

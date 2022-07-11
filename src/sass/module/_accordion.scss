@@ -1,0 +1,93 @@
+.accordion__item {
+    background: #fefffa;
+    border-radius: rem(4);
+    cursor: pointer;
+    font-size: rem(17);
+    padding: 0 rem(16);
+    opacity: .95;
+    
+    @include mq('md') {
+        font-size: rem(20);
+        padding: 0 rem(18);        
+    }
+}
+
+.accordion__item_question {
+    align-items: center;
+    padding: rem(14) 0 rem(14);
+    
+    @include mq('md') {
+        padding: rem(16) 0 rem(14);
+        line-height: (24 / 16);        
+    }
+}
+
+.accordion__title {
+    flex: 0 1 100%;
+    line-height: 1.5;
+    position: relative;
+    letter-spacing: 0.025em;
+    font-weight: 700;
+  
+    &:before {
+        background: #e25c00;
+        content: '';
+        display: block;
+        height: 3px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: transform .3s;
+        width: 15px;
+        letter-spacing: normal;
+    }
+  
+    &:after {
+        background: #e25c00;
+        content: '';
+        display: block;
+        height: 3px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transition: transform .3s;
+        width: 15px;
+        transform: translateY(-50%) rotate(90deg);
+    }  
+}
+
+.accordion__item.add-active .accordion__title:after {
+    transform: translateY(-50%) rotate(0);
+}
+
+.accordion__item_answer {
+    display: none;
+    padding-bottom: 14px;  
+}
+
+.accordion__text {
+    background: rgba(226, 92, 0, 0.2);
+    border-radius: 4px;
+    line-height: (24 / 16);
+    padding: 14px 14px;  
+    text-align: justify;
+
+    /* 文字のアニメーション */
+    animation-name: fadeUpAnime;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes fadeUpAnime {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

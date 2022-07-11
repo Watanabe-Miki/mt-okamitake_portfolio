@@ -1,0 +1,131 @@
+.grid-card__items {
+    display: grid;
+    grid-gap: rem(8);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    @include mq('xs') {
+        display: block;
+        display: flex;
+        flex-direction: column;
+        grid-gap: rem(16);
+    }
+}
+
+.grid-card__item {
+    box-shadow: 0 rem(5) rem(12) rgba(62, 62, 62, 0.2);
+
+    /* ホバー時画像拡大 */
+    display: block;
+    overflow: hidden;
+    //line-height: 0;/*行の高さを0にする*/
+
+}
+
+.grid-card__wrapper {
+    display: grid;
+    position: relative;
+    transition: 0.3s ease-in-out;
+
+    > * {
+        grid-area: 1/-1; 
+	}
+
+    a {
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    /* ホバー時画像拡大 */
+    &:focus,
+    &:hover {
+        transform: scale(1.15);
+    }
+}
+
+.grid-card__thumb {
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        max-width: 100%;
+        max-height: 100%;
+        vertical-align: bottom;
+
+        /* ホバー時画像拡大 */
+        transform: scale(1);
+        transition: .3s ease-in-out;
+    }
+}
+
+.grid-card__content {
+    align-self: end;
+    text-align: center;
+    background: linear-gradient(to top, #000000d9, #0000) bottom/100% 60% no-repeat;
+    padding-top: rem(100);
+    padding-bottom: rem(40);
+    width: 100%;
+    z-index: $layer-up;
+    
+    @include mq('xs') {
+        padding-bottom: rem(30);
+    }
+}
+
+.grid-card__title {
+    font-size: rem(18);
+    font-weight: $semi-bold;
+    color: $white;
+    
+    @include mq('lg') {
+        font-size: rem(20);
+    }
+}
+
+.no-01 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.bg-01 {
+    background: url(/assets/images/service01.jpg) no-repeat center center/cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: bottom;
+
+    @include mq('xs') {
+        background: url(/assets/images/service_sp01.jpg) no-repeat center center/cover;
+        height: rem(348.31);
+    }
+}
+
+.bg-03 {
+    background: url(/assets/images/service03.jpg) no-repeat center center/cover;
+    height: 100%;
+    width: 100%;
+    
+    @include mq('xs') {
+        background: url(/assets/images/service_sp03.jpg) no-repeat center center/cover;
+        height: rem(460);
+    }
+}
+
+.no-03 {
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+.no-04 {
+    grid-column-start: 2;
+    grid-column-end: 4;  
+}

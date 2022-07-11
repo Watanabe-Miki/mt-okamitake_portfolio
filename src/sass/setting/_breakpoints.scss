@@ -1,0 +1,27 @@
+@import "inner";
+
+//ブレイクポイント
+$breakpoints: (
+  xs: 375,
+  sm: 600,
+  md: 767,
+  lg: 1023,
+  xl: 1439,
+);
+
+//スクリーンサイズ
+$screen-min: 375px;
+$screen-max: 1920px;
+
+//メディアクエリー
+$mediaquerys: (
+  
+  xs: "screen and (max-width: #{map-get($breakpoints,'sm')}px)",
+  sm: "screen and (min-width: #{map-get($breakpoints,'sm') + 1}px)",
+  md-down: "screen and (max-width: #{map-get($breakpoints,'md')}px)",
+  md: "screen and (min-width: #{map-get($breakpoints,'md') + 1}px)",
+  lg: "screen and (min-width: #{map-get($breakpoints,'lg') + 1}px)",
+  xl: "screen and (min-width: #{map-get($breakpoints,'xl') + 1}px)",
+  ie: "(-ms-high-contrast: active), (-ms-high-contrast: none)",
+);
+

@@ -1,0 +1,144 @@
+.blog {
+	background: #efefef;
+	margin-bottom: 0;
+}
+
+.blog__inner {
+	width: 96.875%;
+	margin-left: auto;
+	margin-right: 0;
+	padding-left: rem(60);
+	padding-top: rem(60);
+	padding-bottom: rem(60);
+	background: #3E3E3E;
+	
+	@include mq('xs') {
+		max-width: 100%;
+		width: 100%;
+		padding-left: rem(16);
+		padding-top: rem(40);
+		padding-bottom: rem(40);
+	}
+}
+
+.blog__heading {
+	text-align: center;
+	@include mq('lg') {
+		text-align: left;
+	}
+}
+
+.blog__title {
+	color: $white;
+}
+
+.title {
+	@include _title
+}
+
+
+
+/*==========================
+スライダー
+===========================*/
+.card__sliders {
+	width: 100%;
+	max-width: 100%;
+	margin-top: rem(40);
+	margin-bottom: 0;
+	margin-left: auto;
+	margin-right: auto;
+
+	@include mq('md') {
+		margin-top: rem(60);
+	}
+}
+
+.swiper-container {
+	padding-bottom: rem(69);
+	
+	@include mq('xs') {
+		padding-bottom: rem(46);
+		padding-left: rem(3);
+		padding-right: rem(3);
+	}
+}
+
+.swiper-pagination-bullet {
+	width: 12px;
+	height: 12px;
+	background: #fff;
+	opacity: 1;
+	margin: 0 10px !important;
+	position: relative;
+
+	&:focus {
+		outline: none;
+	}
+	
+	@include mq('xs') {
+		width: 12px;
+		height: 12px;
+	}
+}
+
+
+.swiper-pagination-bullet-active {
+	
+	&::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 20px;
+		height: 20px;
+		display: block;
+		background: transparent;
+		border: 1px solid $white;
+		border-radius: 50%;	
+	}
+}
+
+ .swiper-container-horizontal > .swiper-pagination-bullets {
+	bottom: 0;
+	z-index: 2;
+	
+	@include mq('xs') {
+		bottom: rem(4);
+		left: rem(-7);
+	}
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets {
+	left: 0;
+
+	@include mq('lg') {
+		left: -39%;
+	}
+}
+
+/*==========================
+ボタン
+===========================*/
+.blog__btn {
+	margin-top: rem(26);
+	text-align: center;
+	
+	@include mq('xs') {
+		margin-top: rem(21);
+		
+	}
+	@include mq('lg') {
+		margin-top: rem(38);
+		text-align: left;
+	}
+}
+
+
+.blog__link {
+	@include mq('md') {
+		min-width: 0;
+		width: rem(285);
+	}
+}

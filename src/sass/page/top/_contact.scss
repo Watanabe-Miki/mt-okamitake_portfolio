@@ -1,0 +1,495 @@
+.contact {
+    background: url(/assets/images/contact-bg2.jpg) center center / cover;
+
+    @include mq('md-down') {
+        margin-top: 0;
+        padding-bottom: percentage($padding-s / $inner-xs);
+        padding-top: 15.661808%;
+    }
+    
+    @include mq('md') {
+        //padding-top: percentage($padding-m / $inner);
+        padding-top: 4%;
+        padding-bottom: percentage($padding-m / $inner);
+    }
+}
+
+.contact__wrapper {
+    background: $white;
+    border-radius: rem(12) rem(12) 0 0;
+}
+
+.contact__title__content {
+    background: url(/assets/images/contact1.png) no-repeat top center / cover;
+    position: relative;
+    z-index: 2;
+    padding-top: 47.5218%;
+
+    @include mq('md') {
+        background: url(/assets/images/contact1.png) no-repeat top center / contain;
+        padding-top: 20.4942%;
+    }
+
+    @include mq('lg') {
+        padding-top: 20.4167%;
+    }
+}
+
+.contact__heading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    
+    @include mq('md-down') {
+        width: rem(311);
+    }
+    
+    @include mq('md') {
+        text-align: center;
+        width: rem(476);
+    }
+}
+
+.contact__title {
+    color: $white;
+
+    @include mq('xs') {
+        margin-left: rem(71);
+    }
+}
+
+.contact__sub-title {
+    color: $white;
+    margin-top: rem(16);
+    
+    @include mq('md-down') {
+        font-size: rem(14);
+        line-height: (20 / 14);
+        letter-spacing: 0;
+        margin-top: rem(12);
+        text-align: center;
+    }
+}
+
+select,
+textarea {
+    width: 100%;
+    border: rem(1) solid #707070;
+    font-size: 16px;//何も書かないと小さくなる
+    color: $text;
+    padding: 0.7em 0.5em;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    //border: 0;
+    border-bottom: rem(1) solid #3E3E3E;
+    font-size: 16px;//何も書かないと小さくなる
+    padding: 0.2em 0.5em;
+
+    @include mq('xs') {
+        padding: 0.2em 0;
+        padding-right: .5em;
+    }
+}
+
+input[type="text"],
+input[type="email"] {
+    height: rem(32); 
+
+    &:focus,
+    &:hover {
+        box-shadow: 0 rem(5) rem(4) rem(-4) rgba(73, 115, 255, 0.5);
+        border-bottom: rem(1) solid #4973FF;
+        transition: all 0.5s ease 0s;
+    }
+    
+}
+
+textarea {
+    min-height: rem(200);
+    
+    @include mq('xs') {
+        min-height: rem(160);
+        margin-top: rem(11);
+    }
+    &:focus,
+    &:hover {
+        box-shadow: 0 0 rem(4) rgba(73, 115, 255, 0.5), inset 0 0 rem(4) rgba(73, 115, 255, 0.5);
+        transition: all 0.5s ease 0s;
+        border: rem(1) solid #4973FF;
+    }
+}
+
+/* ドロップダウンメニュー */
+//アローアイコンを上書きして自分が用意した画像を背景として適応させるという指定を行う
+
+.select {
+    -moz-appearance: none; //appearanceには必要
+    -webkit-appearance: none;
+    appearance: none; //ブラウザ別に設定されているデフォルトスタイルを無効にする。
+    background: transparent url(/assets/images/dropdown-arrow.png) no-repeat center right 8px / 16px 16px;
+    border: 1px solid #707070;
+    border-radius: 0;
+    color: inherit;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1em;
+    padding: 0.4em 0.8em;
+    width: 100%;
+
+    @include mq('md') {
+        width: rem(178);
+    }
+    
+    &:focus,
+    &:hover {
+        box-shadow: 0 0 rem(5) rgba(73, 115, 255, 0.5);
+        transition: all 0.5s ease 0s;
+    }
+
+    &::-ms-expand { //IE用。appearanceがIEに使えない代わりのもの。
+        opacity: 0;
+    }
+}
+
+/* ラジオボタン */
+//標準で出力されるラジオボタンは消して独自のラジオボタンを擬似要素で作る
+.radio {
+
+    & + span {
+        cursor: pointer;    
+        display: inline-block;
+        padding: 0 0 0 1.2em;
+        position: relative;
+    }
+
+
+    /* 外側の円 */
+    & + span::before { 
+        -webkit-transform: translateY(-50%);
+        background: #fff;
+        border: 1px solid rgba(112, 112, 112, 1);
+        border-radius: 50%;
+        content: "";
+        display: block;
+        height: rem(12);
+        left: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: rem(12);
+    }
+
+    & + span:hover::before {
+        box-shadow: 0 0 rem(5) rgba(73, 115, 255, 0.5);
+        transition: all 0.5s ease 0s;
+    }    
+
+    /* 内側の円 */
+    & + span::after {
+        -webkit-transform: translateY(-50%);
+        background: rgba(59, 105, 255, 1);
+        border: 1px solid transparent;
+        content: "";
+        height: rem(6);
+        width: rem(6);
+        border-radius: 50%;
+        left: rem(3);
+        padding: rem(1.5);
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s ease 0s;
+    }
+
+    &.radio:checked + span::after {
+        opacity: 1;
+    }
+}
+
+/* ラジオボタン focus時の指定 */
+input[type="radio"]:focus + .radio__text::before {
+    box-shadow: 0 0 rem(5) rgba(73, 115, 255, 0.5);
+    transition: all 0.5s ease 0s;
+}
+
+.radio_left {
+    margin-left: rem(38);
+}
+
+.contact__text {
+    font-size: 14px;
+    letter-spacing: .1em;
+    text-align: center;
+}
+
+.contact__text__inline { //*マーク
+    font-size: 16px;
+    color: #E7728E;
+}
+
+.contact__list {
+    max-width: rem(710);
+    margin:  rem(40) auto 0; //センター配置
+    
+    @include mq('md-down') {
+       margin-left: rem(12); 
+       margin-right: rem(12); 
+    }
+
+    @include mq('md') {
+        margin:  rem(60) auto 0; //センター配置
+    }
+}
+
+.contact__form {
+    margin-top: 56px;
+}
+
+.contact__footer {
+    margin-top: 20px;
+    padding-bottom: rem(40);
+
+    @include mq('md-down') {
+        margin-left: rem(12); 
+        margin-right: rem(12); 
+    }
+ 
+    @include mq('md') {
+        padding-bottom: rem(60);
+    }
+}
+
+.contact__footer__submit {
+    text-align: center;
+    margin-top: rem(34);
+
+    @include mq('md') {
+        text-align: left;
+        margin-top: rem(34);
+    }
+
+    .contact__submit { //送信可能状態のstyle
+        display: inline-block;
+        min-width: rem(165); //改行しないように
+        max-width: 100%;
+        padding: rem(11) rem(30.5);
+        font-size: rem(16);
+        font-weight: $semi-bold;
+        color: $white;
+        letter-spacing: 0;
+        background: #ffaa3b;
+        text-align: center;
+        transition: background-color .2s;
+        border: 1px solid transparent; //border分大きさが変わらないように
+        border-radius: rem(10);
+        cursor: pointer;
+    
+        &:hover,
+        &:focus {
+            background: #F18900;
+        }
+    
+        @include mq('md') {
+            min-width: rem(173); //改行しないように
+            padding: rem(10.5) rem(49);
+            font-size: rem(18);
+            letter-spacing: 0.025em;
+        }
+    
+        &:disabled {
+            display: inline-block;
+            min-width: rem(165); //改行しないように
+            max-width: 100%;
+            padding: rem(11) rem(30.5);
+            font-size: rem(16);
+            font-weight: $semi-bold;
+            color: $white;
+            letter-spacing: 0;
+            background: #b2b2b2;
+            text-align: center;
+            border: 1px solid transparent; //border分大きさが変わらないように
+            border-radius: rem(10);
+            cursor: pointer;
+            transition: all 0.3s ease 0s;
+        }
+    }
+}
+
+.contact__item {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    & + & {
+        margin-top: rem(32);
+        
+        @include mq('xs') {
+            margin-top: rem(26);
+            
+        }
+    }
+
+    @include mq('xs') {
+        display: block;
+    }
+}
+
+.contact__item_column {
+    display: block;
+}
+
+.contact__item__input {
+    flex: 0 0 73.8889%; //カンプの指示幅
+
+    @include mq('xs') {
+        margin-top: 3px;
+    }
+}
+
+.contact__item__title {
+    flex: 0 1 100%; //余った幅を使いたい
+    color: $text;
+    font-weight: 600;
+    position: relative;
+    
+    @include mq('xs') {
+        flex: none;
+        display: inline-block;
+        padding: 0;
+    }
+}
+
+.contact__item__inline { 
+    display: inline-block;
+    text-align: center;
+    font-size: rem(12);
+    color: $white;
+    font-weight: 600;
+    line-height: 1em;
+    background: #FF4646;
+    width: rem(40);
+    height: rem(16);
+    line-height: rem(16);
+    border-radius: rem(2);
+    margin-left: rem(12);
+}
+
+.contact__footer {
+    max-width: rem(710);
+    margin: 0 auto;
+}
+
+.contact__footer__text {
+    margin-top: rem(30);
+    
+    @include mq('xs') {
+        margin-top: rem(20);
+    }
+
+    @include mq('md') {
+        margin-top: rem(30);
+    }
+}
+
+.contact__privacy__link {
+    color: $text;
+    font-weight: 600;
+    outline: none;
+
+    @include mq('md') {
+        font-size: rem(18);
+    }
+}
+/* チェックボックス */
+//標準で出力されるラジオボタンは消して独自のラジオボタンを擬似要素で作る
+
+.contact__privacy__input {
+    opacity: 0;
+        &:checked + span::after {
+        opacity: 1;
+    }
+}
+
+.contact__privacy__part {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 0.2em 0;
+    padding: 0 0 0 1.2em;
+    position: relative;
+    vertical-align: middle;
+    width: rem(20);
+    height: rem(20);
+
+    
+    /* チェックボックスの枠 */
+    &::before {
+        -webkit-transform: translateY(-50%);
+        background: #fff;
+        border: 1px solid #707070;
+        border-radius: 0;
+        content: "";
+        display: block;
+        height: 1.1319em;
+        left: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1.1319em;
+    }
+
+    
+    /* チェックボックスの✓マーク */
+    &::after {
+        -webkit-transform: translateY(-50%) rotate(-45deg);
+        border-bottom: rem(2) solid #3B69FF;
+        border-left: rem(2) solid #3B69FF;
+        content: "";
+        display: block;
+        height: 0.6em;
+        left: 0;
+        margin-top: -0.2em;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) rotate(-45deg);
+        transition: all 0.3s ease 0s;
+        width: 1.1319em;
+        
+    }
+}
+
+/* hover,focus時のスタイル */
+input[type="checkbox"]:hover + .contact__privacy__part::before {
+    box-shadow: 0 0 rem(4) rgba(73, 115, 255, 0.5), inset 0 0 rem(4) rgba(73, 115, 255, 0.5);
+    transition: all 0.5s ease 0s;
+}
+
+input[type="checkbox"]:focus + .contact__privacy__part::before {
+    box-shadow: 0 0 rem(4) rgba(73, 115, 255, 0.5), inset 0 0 rem(4) rgba(73, 115, 255, 0.5);
+    transition: all 0.5s ease 0s;
+}
+
+.contact__privacy__link {
+    vertical-align: middle;
+
+}
+
+.contact__message {
+    text-align: center;
+    margin-top: 60px;
+    display: none;
+    color: $white;
+    font-size: rem(20);
+
+    &.-error {
+        color: #f00;
+    }
+}
+
+      

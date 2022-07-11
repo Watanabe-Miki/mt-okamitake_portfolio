@@ -1,0 +1,82 @@
+.js-floating {
+    position: fixed;
+    right: rem(40);
+    bottom: rem(36);
+    z-index: $layer-floating;
+
+    /*はじめは非表示*/
+    opacity: 0;
+    transform: translateY(150px);
+    
+    @include mq('xs') {
+        right: rem(16);
+        bottom: rem(13);
+    }
+
+    /* 上に上がる動き */
+    &.UpMove {
+        animation-name: UpAnime;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    /* 下に下がる動き */
+    &.DownMove {
+        animation-name: DownAnime;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+}
+
+@keyframes UpAnime {
+    from {
+    opacity: 0;
+    transform: translateY(150px);
+    }
+
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+    
+@keyframes DownAnime {
+    from {
+    opacity: 1;
+    transform: translateY(0);
+    }
+
+    to {
+    opacity: 1;
+    transform: translateY(150px);
+    }
+}
+
+.floating__link {
+    transition: all 0.3s ease 0s;
+
+    &::before {
+
+        /* 最低限必要 */
+        content: '\f135';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+
+        /* ここからカスタマイズ */
+        font-size: rem(40);
+        color: #e25c00;
+        opacity: .8;
+        text-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+        display: inline-block;  // 下記transformはインラインに効かない為
+        transform: rotate(-45deg); // デフォだと45度傾いたアイコンを垂直にする
+
+        @include mq('md') {
+            font-size: rem(50);
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+        opacity: $hover-opacity;
+    }
+}

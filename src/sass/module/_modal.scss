@@ -1,0 +1,52 @@
+
+/* 黒い背景 */
+.modal__bg {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30,30,30,0.9);
+  z-index: 998;
+  cursor: pointer;
+}
+
+/* テキスト部分 */
+.modal__wrapper {
+  display: none;  
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%, -50%);
+  width: 70%;
+  max-width: 500px;
+  padding: rem(30) rem(30);
+  background-color: $base-color;
+  z-index: 999;
+}
+
+/* ☓印 */
+.modal_close {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  cursor: pointer;
+}
+ 
+/* 表示領域外へはスクロールさせない */
+.no_scroll {
+  overflow: hidden;
+}
+
+/* テキストのスタイル */
+.modal__title {
+    font-size: rem(20);
+    font-weight: $semi-bold;
+    margin: rem(10) 0;
+}
+
+.modal__text {
+  line-height: $leading-normal;
+  text-align: justify;
+}

@@ -1,0 +1,51 @@
+.photos {
+    margin-right: auto;
+    margin-left: auto;
+
+    @include mq('xs') {
+        margin-top: rem(160);
+    }
+
+    .swiper-container {
+        padding-bottom: rem(10);
+        padding-right: 0;
+        padding-left: 0;
+
+        @include mq('sm') {
+            padding-bottom: rem(20);
+        }
+    }
+
+    .photos__swiper-wrapper {
+        
+        @include mq('xs') {
+            height: rem(280);
+        }
+    }
+    
+    .main-slide {
+
+        @include mq('xs') {
+            img {
+                width: 100%;
+                height: rem(280);
+            }
+        }
+    }
+
+    .thumbnail-slide {
+        transition: all 0.3s ease 0s;
+        
+        &:hover,
+        &.focus {
+            cursor: pointer;
+            opacity: .6;
+        }
+    }
+}
+
+
+.photos__l-inner-m {
+    padding-right: 0;
+    padding-left: 0;
+}

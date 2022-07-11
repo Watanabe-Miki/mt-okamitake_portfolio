@@ -1,0 +1,29 @@
+@mixin _cta {
+    display: inline-block;
+    min-width: rem(165); //改行しないように
+    max-width: 100%;
+    padding: rem(11) rem(30.5);
+    font-size: rem(16);
+    font-weight: $semi-bold;
+    color: $white;
+    letter-spacing: 0;
+    background: #e25c00;
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid transparent; //border分大きさが変わらないように
+    border-radius: rem(10);
+    cursor: pointer;
+
+    &:focus,
+    &:hover {
+        background: #F18900;
+    }
+
+    @include mq('md') {
+        min-width: rem(173); //改行しないように
+        padding: rem(10.5) rem(49);
+        font-size: rem(18);
+        letter-spacing: 0.025em;
+    }
+}
+

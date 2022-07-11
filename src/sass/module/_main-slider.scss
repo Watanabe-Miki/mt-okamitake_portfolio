@@ -1,0 +1,40 @@
+/* スライダー画像が大→小へ変化 */
+@keyframes zoomDown {
+    0% {
+      transform: scale(1.15);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* アニメーションの詳細 */
+  .swiper-slide-active .slide-img,
+  .swiper-slide-duplicate-active .slide-img,
+  .swiper-slide-prev .slide-img{
+    animation: zoomDown 8s linear 0s 1 normal both;  
+  }
+  //参考  https://developer.mozilla.org/ja/docs/Web/CSS/animation-direction
+  //@keyframes name:zoomDown 自分でつけた名前
+  //duration:8秒かけて変化 ※注意 早すぎるとスマホ画面にした時画像両端に隙間ができてしまう。最低でもjsで指定した秒数(4000+2000)以上は必要。
+  //timing-function:linear 一定の速度で変化
+  //delay:アニメーション開始までの時間
+  //iteration-count:回数
+  //direction:再生の向き
+  //fill-mode
+
+  //imgタグだと下に隙間ができるのでblockに。
+  .slide-img img{
+    display: block;
+    width: 100%;
+    height: 90vh;
+    object-fit: cover;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  /* ナビゲーションを非表示にする */
+  .swiper-button-next::after, 
+  .swiper-button-prev::after {
+    content: none !important;
+  }

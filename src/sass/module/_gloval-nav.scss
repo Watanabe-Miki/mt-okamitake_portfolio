@@ -1,0 +1,29 @@
+.global-nav {
+    background: transparent;
+}
+
+.global-nav__list {
+    display: flex;
+    align-items: center;
+}
+
+.global-nav__item {
+    height: $header-height-md;
+    line-height: $header-height-md;
+
+    @include mq('lg') {
+        height: $header-height-pc;
+        line-height: $header-height-pc;
+    }
+
+    &:not(:first-child) {
+        margin-left: rem(40);
+    }
+}
+
+.global-nav__link {
+    display: inline-block;
+    font-weight: $medium;
+    letter-spacing: 0.04em;
+    font-family: $font-en;
+}

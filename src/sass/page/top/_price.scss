@@ -1,0 +1,71 @@
+
+.price__inner {
+    padding-top: percentage($padding-m / $inner-sm);
+
+    @include mq('xs') {
+        padding-top: percentage($padding-s / $inner-xs);
+    }
+    
+    @include mq("md") {
+        padding-top: 4.5%;
+    }
+}
+
+.price__heading {
+    text-align: center;
+}
+
+.title {
+	@include _title
+}
+
+
+
+/* ラッパーモジュールに対する指定 */
+.price-boxes {
+	display: flex;
+	justify-content: center;
+
+	@include mq('xs') {
+		display: block;
+		max-width: rem(450);
+		margin: 0 auto;
+		margin-top: rem(40);
+	}
+}
+
+.price-boxes__item {
+	flex: 1;
+	margin-right: 2.43902%;
+
+	&:last-child {
+		margin-right: 0;
+	}
+
+	@include mq('xs') {
+		margin-right: 0;
+		margin-bottom: 30px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.price__note {
+	@include mq('xs') {
+		margin: 0 auto;
+		max-width: rem(400);
+	}
+}
+
+.price__note-text {
+    font-size: rem(12);
+    line-height: (20 / 12);
+    letter-spacing: 0;
+    margin-top: rem(4);        
+
+    @include mq('md') {
+        margin-top: rem(11);        
+    }
+}

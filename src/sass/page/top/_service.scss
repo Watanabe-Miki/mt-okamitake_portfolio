@@ -1,0 +1,28 @@
+.service {
+    background: linear-gradient(180deg,$primary-color 0%,$primary-color 80.8081%,$base-color 80.8081%,$base-color 100%);
+}
+
+.service__heading {
+    text-align: center;
+}
+
+.title {
+    @include _title
+}
+
+.service__title {
+    color: $white;
+}
+
+.service__inner {
+    padding-top: percentage($padding-m / $inner-sm);
+
+    @include mq('xs') {
+        padding-top: percentage($padding-s / $inner-xs);
+    }
+    
+    @include mq("md") {
+        padding-top: 4.5%;
+    }
+}
+

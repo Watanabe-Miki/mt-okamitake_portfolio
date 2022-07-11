@@ -1,0 +1,14 @@
+//デスクトップのみ表示
+.u-desktop {
+  display: none;
+  @include mq("md") { //md（767:breakpoint）以上になったら適応
+    display: block;
+  }
+}
+
+//モバイルのみ表示
+.u-mobile {
+  @include mq("md") { //md(766)になったら適応
+    display: none; //上記 disply:blockを解除
+  }
+}

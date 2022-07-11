@@ -1,0 +1,49 @@
+.btn03 {
+    display: inline-block;
+    min-width: rem(312); //改行しないように
+    max-width: 100%;
+    padding: rem(12.5) rem(96);
+    font-size: rem(18);
+    font-weight: $semi-bold;
+    color: $white;
+    letter-spacing: .1em;
+    background: $primary-color;
+    text-align: center;
+    cursor: pointer;
+    font-family: $font-en;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+
+    /* 左から出てくる要素 */
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: rem(-50);
+        bottom: 0;
+        left: 0;
+        border-right: rem(50) solid transparent;
+        border-bottom: rem(64) solid $base-color;        
+        transform: translateX(-100%);
+        transition: 0.3s ease-in-out;
+    }
+    
+    &:focus,
+    &:hover {
+        color: $text;
+        border-color: currentColor;
+        border: 1px solid #707070;
+
+        &:before {
+            transform: translateX(0);
+        }
+    }
+    
+    @include mq('md') {
+        min-width: rem(315); //改行しないように
+        padding: rem(16) rem(78);
+        font-size: rem(20);
+    }
+}
+

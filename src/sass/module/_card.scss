@@ -1,0 +1,94 @@
+// カード
+.card {
+	box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+}
+
+.card__img-wrapper {
+	overflow: hidden;
+    aspect-ratio: 3/2;
+    cursor: pointer;
+}
+
+.card__img {
+    width: 100%;
+    height: auto;
+    transition: .4s;
+
+    /* ホバーで画像拡大 */
+    &:focus,
+    &:hover {
+        transform: scale(1.1, 1.1);
+        transform-origin: center;
+    }
+	/* 画像の微調整時記述 css設計 p314参照*/
+	//height: 100%;
+	//object-fit: cover;
+}
+
+
+.card__body {
+    padding: rem(16);
+    background: $white;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    
+	> :last-child {
+        margin-bottom: 0;
+	}
+}
+
+.card__head {
+    position: relative;
+}
+
+.card__title {
+	margin-bottom: rem(5); 
+	font-size: rem(15);
+	font-weight: $semi-bold;
+    line-height: $leading-relaxed;
+    letter-spacing: .0555em;
+    
+    @include mq('md') {
+        font-size: rem(18);
+    }
+}
+
+.card__date {
+    font-size: rem(14);
+    line-height: $leading-relaxed;
+}
+
+.date__text {
+    @include mq('md') {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+.card__text {
+    margin-bottom: rem(5);
+    font-size: rem(14);
+    line-height: $leading-relaxed;
+    letter-spacing: .0555em;
+    text-align: justify;
+}
+
+.card__title,
+.card__text,
+.card__date {
+    color: $text;
+}
+
+.card__label {
+    margin-right: rem(10);
+}
+
+.card__labels {
+    display: inline-flex;
+    flex-wrap: wrap;
+
+    & > *:last-child {
+        margin-right: 0; //label同士のmargin相殺
+    }
+}

@@ -1,0 +1,67 @@
+.header {
+    background: $white;
+    height: $header-height-sp;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: $layer-header;
+    transition: all 0.5s ease 0s;
+    
+    @include mq('md') {
+        background: #FFFFFF1A;
+        height: $header-height-md;
+    }
+    
+    @include mq('lg') {
+        background: #FFFFFF1A;
+        height: $header-height-pc;
+    }
+    
+    &.change-color {
+
+        @include mq('md') {
+            background: $primary-color;
+            color: $white;
+        }
+    }
+}
+
+
+.header__inner {
+    max-width: rem(748);
+    padding-right: $padding-sp;
+    padding-left: $padding-sp;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    height: inherit;
+
+    @include mq("md") {
+      padding-right: $padding-pc;
+      padding-left: $padding-pc;
+    }
+}
+
+.logo {
+    @include _logo
+}
+
+.header__logo {
+    font-size: rem(23);
+    font-weight: $bold;
+    line-height: (77 / 23);
+    color: $text;
+
+    @include mq('md') {
+        display: none; //最初消えている
+    }
+}
+
+.header-nav {
+    display: none;
+    @include mq('md') {
+        display: block; //スマホ時表示
+    }
+}

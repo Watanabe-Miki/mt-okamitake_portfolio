@@ -1,0 +1,121 @@
+.footer {
+    background: $primary-color;
+    padding-top: percentage($padding-m / $inner-sm);
+    padding-bottom: percentage($padding-m / $inner-sm);
+    
+    @include mq('xs') {
+        padding-top: 15.492711%;
+        padding-bottom: percentage($padding-m / $inner-xs);
+        
+    }
+    
+    @include mq('md') {
+        padding-top: 4.5%;
+        padding-bottom: 3.5%;
+    }
+}
+
+.footer__inner {
+    @include mq('md') {
+        display: flex;
+        align-items: flex-start;
+    }
+}
+
+.footer__items-wrapper {
+
+    @include mq('md-down') {
+        text-align: center;
+    }
+}
+
+.footer__items-wrapper_right {
+    @include mq('md') {
+        margin-left: auto;
+    }
+}
+
+.footer__sns__items {
+    display: flex;
+    justify-content: center;
+
+    @include mq('md') {
+        justify-content: flex-start;
+    }
+
+}
+
+.footer__sns__item {
+
+    &:nth-child(2) {
+        margin-left: rem(50);
+    }
+    
+    @include mq('md') {
+        &:nth-child(2) {
+            margin-left: rem(31);
+        }
+    }
+
+}
+
+.fab {
+    color: #B2B2B2;
+    font-size: rem(36);
+}
+
+.footer__nav__item {
+
+    &:first-child {
+        margin-top: rem(38);
+    }
+    
+    &:nth-child(n + 2) {
+        margin-top: rem(26);
+        
+        @include mq('xs') {
+            margin-top: rem(15);
+        }
+    }
+    
+    @include mq('md') {
+        &:first-child {
+            margin-top: rem(38);
+        }
+        
+        &:nth-child(n + 2) {
+            margin-top: rem(16);
+        }
+    }
+    
+}
+
+.footer__nav__item__link {
+    color: $white;
+}
+
+.footer__logo {
+    line-height: 1;
+
+    @include mq('md-down') {
+        margin-top: rem(30);
+    }
+        
+    @include mq('md') {
+        line-height: 1;
+        
+    }
+}
+
+.footer-copyright {
+    font-size: rem(12);
+    font-family: $font-en;
+    color: #B2B2B2;
+    line-height: (15 / 12);
+    letter-spacing: .025em;
+    margin-top: rem(11);
+
+    @include mq('md') {
+        margin-top: rem(10);
+    }
+}

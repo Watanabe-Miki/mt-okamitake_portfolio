@@ -1,0 +1,7 @@
+section {
+    margin-bottom: rem(60);
+    
+    @include mq('md') {
+        margin-bottom: rem(120);
+    }
+}

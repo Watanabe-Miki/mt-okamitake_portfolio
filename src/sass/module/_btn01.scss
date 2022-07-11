@@ -1,0 +1,61 @@
+.btn01 {
+    display: inline-block;
+    min-width: rem(268); //改行しないように
+    max-width: 100%;
+    padding: rem(12.5) rem(97);
+    font-size: rem(18);
+    font-weight: $semi-bold;
+    color: $text;
+    letter-spacing: .2em;
+    background: $white;
+    text-align: center;
+    transition: 0.3s;
+    border-bottom: 1px solid $primary-color;
+    cursor: pointer;
+    font-family: $font-en;
+    position: relative;
+    overflow: hidden;
+
+    /* 左から出てくる要素 */
+    &::before {
+        content: "";
+        position: absolute;
+        width: rem(268);
+        max-width: 100%;
+        height: rem(54);
+        background: linear-gradient(90deg,#2887CD, #AF3CAF);
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: translateY(100%);
+        transition: 0.3s ease-in-out;
+
+        @include mq('md') {
+            min-width: rem(236);
+            height: rem(64);
+        }
+    }
+    
+    &:focus,
+    &:hover {
+        color: $white;
+        border-bottom: 1px solid transparent;
+
+        &:before {
+			transform: translateY(0%); // hoverで元の位置に戻る
+		}
+    }
+
+    @include mq('md') {
+        min-width: rem(236); //改行しないように
+        padding: rem(16) rem(78);
+        font-size: rem(20);
+    }
+}
+
+.btn__text {
+    position: relative; // z-indexを指定するために必要
+	z-index: $layer-up;
+}
+

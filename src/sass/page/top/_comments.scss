@@ -1,0 +1,56 @@
+.comments {
+    background: linear-gradient(360deg,$base-color 0%,$base-color 2.87447%,$primary-color 2.87447%,$primary-color 88.71769%,$base-color 88.71769%,$base-color 100%); 
+
+    @include mq('xs') {
+        background: linear-gradient(360deg,$base-color 0%,$base-color 3.07233%,$primary-color 3.07233%,$primary-color 87.94107%,$base-color 87.94107%,$base-color 100%); 
+    }
+    @include mq('md') {
+        padding-top: rem(60); 
+        padding-bottom: rem(120);
+        background: linear-gradient(90deg,$primary-color 0%,$primary-color 75%,$base-color 75%,$base-color 100%); 
+    }  
+}
+
+.comments__inner {
+    padding-top: rem(40);
+
+    @include mq("md") {
+        padding-top: 0;
+    }
+
+    @include mq('xl') {
+        max-width: rem(1200); // 拡がりすぎないように
+    }
+
+}
+
+.comments__heading {
+    @include mq('md-down') {
+        text-align: center;
+    }
+}
+
+.comments__title {
+    @include mq('md') {
+        color: $white;
+    }
+}
+
+.comments__container {
+	margin-bottom: -32px; //最下段のmargin相殺
+
+	@include mq('md-down') {
+		margin-bottom: -16px;
+        max-width: rem(450); // 拡がりすぎないように
+        margin: 0 auto;
+	}
+}
+
+.comments__media {
+	margin-bottom: 32px;
+	position: relative; //media__sub-textの基準
+
+	@include mq('md-down') {
+		margin-bottom: 16px;
+	}
+}

@@ -1,0 +1,126 @@
+.js-drawer-icon {
+    position: fixed;
+    top: rem(24);
+    right: rem(16);
+    z-index: $layer-drawer;
+    transition: transform ease 0.5s 0s;
+    display: block;
+
+    @include mq('md') {
+        display: none; //最初消えている
+    }
+
+    &.is-active {
+        transform: translateX(-18.75rem); //contentの幅300px分ずれる
+        .js-drawer-icon__bar1 {
+            top: 13px;
+            transform: rotate(45deg);
+        }
+        
+        .js-drawer-icon__bar2 {
+            top: 12px;
+            display: none;
+        }
+        
+        .js-drawer-icon__bar3 {
+            top: 13px;
+            transform: rotate(-45deg);
+        }
+
+        .js-drawer-icon__bar1,
+        .js-drawer-icon__bar2,
+        .js-drawer-icon__bar3 {
+            background: #fff;
+        }
+    }
+}
+
+/* barがはいる箱 */
+.js-drawer-icon__bars {
+    width: rem(26);
+    height: rem(20);
+    display: block;
+    position: relative; //bar1~3の起点
+}
+
+/* それぞれのbarの線分を作る */
+.js-drawer-icon__bar1,
+.js-drawer-icon__bar2,
+.js-drawer-icon__bar3 {
+    width: rem(26);
+    height: rem(4);
+    border-radius: 100vh;
+    background: $primary-color;
+    position: absolute;
+    top: 0; //一旦初期化のための配置（後で個別に位置指定）
+    left: 0;
+}
+
+.js-drawer-icon__bar1 {
+    top: 0;
+}
+
+.js-drawer-icon__bar2 {
+    top: rem(8);
+}
+
+.js-drawer-icon__bar3 {
+    top: rem(16);
+}
+
+/* ドロワーメニュー全体の箱 */
+.js-drawer-content {
+    width: rem(300);
+    height: 100%; //下まで伸びる
+    position: fixed; //浮かせる
+    right: 0;
+    top: 0;
+    background: linear-gradient(90deg,#2887CD, #AF3CAF);
+    z-index: 39; //三ボタンより下、ヘッダーより上
+    transform: translateX(105%); //右側にしまっておく
+    transition: transform ease 0.5s 0s;
+    //box-shadow: 0 0 3px rgba(#000, 0.16);
+    display: flex; //メニュー文字部分の上下左右中央
+    align-items: center;
+    justify-content: center;
+    
+    &.is-active {
+        transform: translateX(0);
+    }
+}
+
+.js-drawer-content__items {
+    text-align: center;
+}
+
+.js-drawer-content__item {
+    &:not(:first-child) {
+        margin-top: rem(32);
+    }
+}
+
+.js-drawer-content__link {
+    color: $white;
+    font-size: rem(18);
+    letter-spacing: 0;
+    line-height: (22 / 18);
+    font-weight: 500;
+    display: block;
+    font-family: $font-en;
+
+}
+
+.js-drawer-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(#3E3E3E, 0.7);
+    z-index: 38;
+    display: none; //最初は消えている
+
+    &.is-active {
+        display: block;
+    }
+}

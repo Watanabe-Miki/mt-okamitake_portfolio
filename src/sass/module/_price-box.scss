@@ -1,0 +1,72 @@
+/* それぞれのボックスに対する指定 */
+.price-box {
+	border: 1px solid #ddd;
+	box-shadow: 0 rem(5) rem(12) rgba(62, 62, 62, 0.2);
+	background: $white;
+}
+
+.price-box__header {
+	padding: 10px;
+	background: #e25c00;
+	color: #fff;
+	text-align: center;
+}
+
+.price-box__title {
+	font-size: rem(18);
+}
+
+.price-box__price {
+	font-size: rem(30);
+
+	@include mq('md-down') {
+		font-size: rem(20);
+	}
+}
+
+.price-box__price-unit {
+	font-size: rem(16);
+}
+
+.price-box__body {
+	padding: 15px;
+
+	> :last-child {
+		margin-bottom: 0; //box__leadのmargin
+	}
+}
+
+.price-box__lead {
+	margin-bottom: 20px;
+	text-align: justify;
+
+	@include mq('md-down') {
+		font-size: rem(14);
+	}
+}
+
+.price-box__features {
+	text-align: center;
+	> :last-child {
+		margin-bottom: 0; //各header,textのmargin
+	}
+}
+
+.price-box__features-header {
+	padding: 5px;
+	margin-bottom: 10px;
+	background: #efefef;
+
+	@include mq('md-down') {
+		font-size: rem(14);
+	}
+}
+
+.price-box__features-text {
+	margin-bottom: 20px;
+
+	@include mq('md-down') {
+		font-size: rem(14);
+	}
+}
+

@@ -1,0 +1,60 @@
+.label {
+    @include _label
+}
+
+.label {
+    @include mq('xs') {
+        padding: .2em .3em;
+    }
+}
+
+// ポストリスト
+.vertical-posts {
+
+}
+
+.vertical-posts__item {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #ddd;
+
+	&:first-child {
+		padding-top: 0;
+	}
+}
+
+.vertical-posts__header {
+	margin-bottom: 10px;
+
+	& > *:last-child {
+		margin-right: 0; //__dateのmargin相殺
+	}
+}
+
+.vertical-posts__date {
+	margin-right: 10px;
+}
+
+.vertical-posts__labels {
+	display: inline-flex;
+	flex-wrap: wrap;
+	margin-bottom: -10px; //_header,labelのmargin相殺
+	
+	& > *:last-child {
+		margin-right: 0; //label同士のmargin相殺
+	}
+}
+
+.vertical-posts__label {
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.vertical-posts__title {
+	text-decoration: none;
+
+	&:focus,
+	&:hover {
+		text-decoration: underline;
+	}
+}
