@@ -1,0 +1,105 @@
+/* スライド外形 */
+.swiper-main {
+  border-radius: 0 4rem 4rem 0;
+  height: max(70vh, 70vw);
+
+  @include mq('lg') {
+    height: 800px;
+  }
+}
+
+/* タイトル */
+.swiper-main {
+
+  /* タイトル上下中央 */
+  .slide {
+    display: grid;
+    place-content: center;
+    height: 100%;
+  }
+
+  .slide-media {
+    grid-area: 1/-1;
+  }
+  
+  .slide-content {
+    grid-area: 1/-1;
+    text-align: center;
+    position: relative; // z-index用
+    z-index: 2;
+    transition: all 1.2s ease 0.5s;
+  }
+
+  /* スライド非アクティブ時 */
+  .slide-content {
+    transform: translateY(-6rem);
+    opacity: 0;
+  }
+
+  /* スライドアクティブ時 anime */
+  .swiper-slide {
+    &[class*=-active] {
+      .slide-content {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  }
+
+  /* タイトル文字 */
+  .slide-title {
+    font-size: 1.8rem;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 500;
+    color: #f5695f;
+    
+    @include mq('sm') {
+      font-size: 2.5rem;      
+    }
+
+    @include mq('md') {
+      font-size: 4rem;
+    }
+
+    @include mq('lg') {
+      font-size: 5rem;
+    }
+  }
+
+  .slide-text,
+  .slide-date {
+    font-size: 1rem;
+    color: $white;
+
+    @include mq('sm') {
+      font-size: 1.2rem;      
+    }
+
+    @include mq('md') {
+      font-size: 1.5rem;
+    }
+
+    @include mq('lg') {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+/* スライド */
+.swiper-main {
+
+  .slide-media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

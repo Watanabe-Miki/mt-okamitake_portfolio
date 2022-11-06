@@ -1,51 +1,142 @@
+
+/* スライド本体 */
 .photos {
-    margin-right: auto;
-    margin-left: auto;
+  .swiper-container {
+    padding-top: 16px;
+    padding-bottom: 0;
+  }
 
-    @include mq('xs') {
-        margin-top: rem(160);
-    }
+  .swiper-slide {
+    transition: all 0.5s ease 0s;
 
-    .swiper-container {
-        padding-bottom: rem(10);
-        padding-right: 0;
-        padding-left: 0;
-
-        @include mq('sm') {
-            padding-bottom: rem(20);
-        }
-    }
-
-    .photos__swiper-wrapper {
-        
-        @include mq('xs') {
-            height: rem(280);
-        }
-    }
-    
-    .main-slide {
-
-        @include mq('xs') {
-            img {
-                width: 100%;
-                height: rem(280);
-            }
-        }
-    }
-
-    .thumbnail-slide {
-        transition: all 0.3s ease 0s;
-        
-        &:hover,
-        &.focus {
-            cursor: pointer;
-            opacity: .6;
-        }
-    }
+    &:hover,
+    &:focus {
+      transform: translateY(-16px);
+    }  
+  }
 }
 
+/* wrapper 右に見切れる為の指定 */
+.photos {
 
-.photos__l-inner-m {
-    padding-right: 0;
-    padding-left: 0;
+  .swiper-container {
+    overflow: visible;
+  }
+
+  .swiper-area {
+    overflow: hidden;
+  }
 }
+
+/* pagination */
+.photos {
+
+  /* レイアウト */
+  .photos__controller {
+    height: 3px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .swiper-pagination {
+    display: flex;
+    gap: 0.8rem;
+  }
+  
+  /* pagination本体 */
+  .swiper-pagination-bullet {
+    width: 1.6rem;
+    height: 3px;
+    background: #ddd;
+    cursor: pointer;
+    transition: all 0.8s ease 0s;
+  }
+
+  /* active時 */
+  .swiper-pagination-bullet-active {
+    width: 4rem;
+    background: #f5695f;
+  }
+}
+
+/* button prev,next */
+.photos {
+
+  .swiper-wrapper {
+    position: relative;
+  }
+
+  /* レイアウト */
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 1;
+  }
+  
+  /* btnBox */
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 4rem;
+    height: 4rem;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  /* アロー記号 */
+  .swiper-button-prev {
+    &::after {
+      width: 0.8rem;
+      height: 0.8rem;
+      content: "";
+      border: solid #ddd;
+      border-width: 0 0 3px 3px;
+      transform: rotate(45deg);
+      margin-left: .2rem;
+    }
+  }
+  
+  .swiper-button-next {
+    &::after {
+      width: 0.8rem;
+      height: 0.8rem;
+      content: "";
+      border: solid #ddd;
+      border-width: 3px 3px 0 0;
+      transform: rotate(45deg);
+      margin-right: .2rem;
+    }
+  }
+}
+
+/* 既存CSS打ち消し */
+
+.photos {
+  .swiper-pagination-bullet-active::after{
+    border: none;
+  }
+  .swiper-pagination-bullet {
+    margin: 0 0 !important;
+    border-radius: 0;
+  }
+
+  .swiper-button-next::after, .swiper-button-prev::after {
+    content: "" !important;
+  }
+}
+

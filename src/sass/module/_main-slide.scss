@@ -1,0 +1,29 @@
+/* レイアウト */
+.main-slide {
+
+  .swiper-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .swiper-main {
+    margin-right: min(40rem, 25vw);
+    padding-bottom: 0;
+  }
+
+  .swiper-thumb {
+    padding-bottom: 0;
+  }
+
+  .swiper-area {
+    position: relative;
+  }
+  
+  .swiper-slide {
+    position: relative;
+  }
+}
+
+.main-slide {
+  border-top: 1px solid #fff; // 上端の欠け防止
+}

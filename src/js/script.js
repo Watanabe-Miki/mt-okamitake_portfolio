@@ -179,22 +179,50 @@ $("a[href^='#']").on("click", function(){
   });
 
 
-/* スライダー1 */
-let swipeOption = {
-    loop: true,
-    effect: 'fade',
-    autoplay: {
-    delay: 4000,
+/* main-slide */
+let mySwiper_main;
+ 
+const mySwiper_thumb = new Swiper('.main-slide .swiper-thumb', {
+  direction: 'vertical',
+  slideToClickedSlide: true,
+  slidesPerView: 4,
+  spaceBetween: 8,
+  thumbs: {
+    swiper: mySwiper_main,
+  },
+
+  //loop: true,
+  //loopAdditionalSlides: 0,
+  //speed: 2000,
+  autoplay: {
+    delay: 7000,
     disableOnInteraction: false,
-    },
-    speed: 2000,
-    }
-    new Swiper('.slider1', swipeOption);
-    
+    waitForTransition: false,
+  },
+  followFinger: false,
+});
+
+mySwiper_main = new Swiper('.main-slide .swiper-main', {
+  direction: 'vertical',
+  thumbs: {
+    swiper: mySwiper_thumb,
+  },
+
+  loop: true,
+  loopAdditionalSlides: 1,
+  speed: 2000,
+  autoplay: {
+    delay: 7000,
+    disableOnInteraction: false,
+    waitForTransition: false,
+  },
+  followFinger: false,
+});
 
 /* スライダー2 */
-var mySwiper = new Swiper('.slider2', {
+var mySwiper = new Swiper('.slider2', { 
     loop: true,
+    loopAdditionalSlides: 1,
     pagination: {
         el: '.swiper-pagination',
         type: 'bullets',
@@ -222,96 +250,43 @@ var mySwiper = new Swiper('.slider2', {
     },
 });
 
-
-/* スライダー3 */
-const mainSlider = '.main-slider'                                        
-const thumbSlider = '.thumbnail-slider'                                  
-const mainSlides = document.getElementsByClassName('main-slide');        
-const thumbSlides = document.getElementsByClassName('thumbnail-slide'); 
-let slideChangePermit = false;
-
-const mainSwiper = new Swiper(mainSlider,{
-loop: true,
-loopedSlides: mainSlides.length
-});
-
-const thumbSwiper = new Swiper(thumbSlider, {
-speed: 1500,
-autoplay: {
-    delay: 3000
-},
-slideToClickedSlide: true,
-    //767以下
-    spaceBetween: 5,
-    slidesPerView: '3',
-    breakpoints: {
-        
-        //768以上
-        768: {
-            spaceBetween: 8,
-            slidesPerView: '4',
-        },
-
-        //1024以上
-        1024: {
-            spaceBetween: 10,
-            slidesPerView: '6',
-        }
+/* photos-slide */
+const mySwiper3 = new Swiper('.photos-slide .swiper-container', {
+  centeredSlides: true,
+  slidesPerView: 1.5,
+  spaceBetween: 16,
+  grabCursor: true,
+  loop: true,
+  loopAdditionalSlides: 1,
+  speed: 1000,
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
+  watchSlidesProgress: true,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  breakpoints: {
+    600: {
+      slidesPerView: 3.3,
     },
-    centeredSlides: true,
-    loop: true,
-    loopedSlides: mainSlides.length,
-    controller:{
-        control:mainSwiper
+    1024: {
+      slidesPerView: 4.3,
+      spaceBetween: 32,
+    },
+
+    1400: {
+      slidesPerView: 5.3,
+      spaceBetween: 32,
     }
+  },
 });
-
-for( let i = 0; i < thumbSlides.length ; i ++ ){
-thumbSlides[i].addEventListener('click',()=>{
-    setTimeout(()=>{
-    thumbSwiper.autoplay.start();
-    },5000);
-},false);
-}
-
-mainSwiper.on('touchEnd',()=>{
-slideChangePermit = true;
-});
-
-mainSwiper.on('slideChange',()=>{
-if( slideChangePermit ){
-    const current = mainSwiper.activeIndex;
-    thumbSwiper.slideTo(current, 300, true); 
-    setTimeout(()=>{
-    thumbSwiper.autoplay.start();
-    slideChangePermit = false;
-    },3000);
-}
-});
-
-
-/* main サブタイトル */
-const CLASSNAME = "-visible";
-const $target = $(".main__sub-title");
-
-function textSlideup() {
-  $target.addClass(CLASSNAME);
-}
-setTimeout(textSlideup, 1800);
-
-function textSlidedown() {
-    $target.removeClass(CLASSNAME);
-  }
-setTimeout(textSlidedown, 5000);
- 
-/* main リード文 */
-const CLASSNAME2 = "-active";
-const $target2 = $(".main__read-text");
-
-function textFadeup() {
-  $target2.addClass(CLASSNAME2);
-}
-setTimeout(textFadeup, 7500); 
 
 
 /* fadeup */
@@ -319,7 +294,7 @@ function fadeUp(){
 
   // ふわっ
   $('.js-fadeup').each(function(){ 
-    var elemPos = $(this).offset().top-50;
+    var elemPos = $(this).offset().top-10;
     var scroll = $(window).scrollTop();
     var windowHeight = $(window).height();
     if (scroll >= elemPos - windowHeight){

@@ -1,0 +1,128 @@
+/* レイアウト */
+.swiper-thumb {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: min(48rem, 30vw);
+  height: 400px;
+
+  @include mq('md') {
+    height: 450px;
+  }
+  
+  @include mq('lg') {
+    height: 632px;
+  }
+}
+
+/* サムネイル外形 */
+.swiper-thumb {
+
+  .thumb {
+    border-radius: 10px 0 0 10px;
+  }
+
+  .thumb-content {
+    height: 100%;
+  }
+}
+
+/* タイトル */
+.swiper-thumb {
+
+  /* タイトル上下中央 */
+  .thumb {
+    display: grid;
+    height: inherit;
+    position: relative;
+    transition: all 1.2s ease 0.5s;
+
+    &::before {
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 6px;
+      content: "";
+      position: absolute;
+      background: #f5695f;
+    }
+  }
+  
+  .thumb-media {
+    grid-area: 1/-1;
+    height: inherit;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  .thumb-content {
+    grid-area: 1/-1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .thumb-title {
+    font-size: 1rem;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 500;
+    color: $white;
+
+    @include mq('md') {
+      font-size: 1.8rem;
+    }
+
+    @include mq('lg') {
+      font-size: 2rem;
+    }
+  }
+
+  .thumb-date {
+    font-size: .8rem;
+    color: $white;
+
+    @include mq('lg') {
+      font-size: 1rem;
+    }
+  }
+
+  /* スライド非アクティブ時 */
+  .thumb {
+
+    &::before {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }  
+
+  /* スライドアクティブ時 anime */
+  .swiper-slide {
+    &[class*=-thumb-active] {
+
+      .thumb {
+        &::before {
+          transition-duration: 1.2s;
+          transition-delay: .5s;
+          transition-timing-function: ease;
+          transform: translateY(0);
+          opacity: 1;    
+        }    
+      }
+
+      .thumb-title,
+      .thumb-date {
+        transition-duration: 1.2s;
+        transition-delay: .5s;
+        transition-timing-function: ease;
+        color: #f5695f;
+      }
+    }
+  }  
+}
+

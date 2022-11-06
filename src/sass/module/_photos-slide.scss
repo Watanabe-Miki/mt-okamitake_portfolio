@@ -1,0 +1,24 @@
+.photos-slide {
+
+	.slide {
+		box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+		background: #ffffff;
+		border-radius: 8px;
+		overflow: hidden;
+	}
+	
+	.slide__img-wrapper {
+		position: relative;
+		padding-top: 66.66666%; // aspect-ratio: 16/9;でもok
+		overflow: hidden;
+	}
+	
+	.slide__img {
+		position: absolute;
+		top: 50%;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transform: translateY(-50%);
+	}
+}

@@ -9,12 +9,12 @@
     transition: all 0.5s ease 0s;
     
     @include mq('md') {
-        background: #FFFFFF1A;
+        background: rgba(255, 255, 255, .4);
         height: $header-height-md;
     }
     
     @include mq('lg') {
-        background: #FFFFFF1A;
+        background: rgba(255, 255, 255, .4);
         height: $header-height-pc;
     }
     
@@ -27,9 +27,8 @@
     }
 }
 
-
 .header__inner {
-    max-width: rem(748);
+    max-width: rem(900);
     padding-right: $padding-sp;
     padding-left: $padding-sp;
     margin-right: auto;
@@ -41,6 +40,7 @@
     @include mq("md") {
       padding-right: $padding-pc;
       padding-left: $padding-pc;
+      display: block;
     }
 }
 

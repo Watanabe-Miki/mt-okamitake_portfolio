@@ -1,14 +1,59 @@
-//デスクトップのみ表示
-.u-desktop {
+// 非表示
+
+.u-sp {
+  display: block;
+
+  @include mq('sm') {
+    display: none;
+  }
+}
+
+.u-sp-up {
   display: none;
-  @include mq("md") { //md（767:breakpoint）以上になったら適応
+
+  @include mq('sm') {
     display: block;
   }
 }
 
-//モバイルのみ表示
-.u-mobile {
-  @include mq("md") { //md(766)になったら適応
-    display: none; //上記 disply:blockを解除
+.u-tab-down {
+  display: block;
+
+  @include mq('md') {
+    display: none;
+  }
+}
+
+.u-tab {
+  display: none;
+  @include mq('md') {
+    display: block;
+  }
+
+  @include mq('lg') {
+    display: none;
+  }
+}
+
+.u-tab-up {
+  display: none;
+  @include mq('md') {
+    display: block;
+  }
+}
+
+.u-pc-down {
+  display: block;
+
+  @include mq('lg') {
+    display: none;
+  }
+}
+
+.u-pc {
+  display: none;
+
+  @include mq('lg') {
+    display: block;
   }
 }
